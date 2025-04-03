@@ -1,0 +1,89 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{geometry}
+\geometry{a4paper, margin=1in}
+
+\title{Introduction to K-Means Clustering}
+\author{}
+\date{}
+
+\begin{document}
+	
+	\maketitle
+	
+	\section{What is K-Means Clustering?}
+	K-means clustering is a method used to group similar data points together. Imagine you have a bunch of points on a piece of paper, and you want to organize them into groups (called \textbf{clusters}) so that points in the same group are close to each other. K-means helps you do this automatically.
+	
+	\section{Why is it Useful?}
+	K-means clustering is useful because:
+	\begin{itemize}
+		\item It helps you find patterns in data. For example:
+		\begin{itemize}
+			\item Grouping customers based on their shopping habits.
+			\item Organizing pictures of animals into cats, dogs, and birds.
+			\item Finding groups of similar genes in biology.
+		\end{itemize}
+		\item It’s an \textbf{unsupervised learning} technique, which means you don’t need to know the groups beforehand. The algorithm figures it out for you.
+	\end{itemize}
+	
+	\section{How Does K-Means Work?}
+	Let’s break it down step by step:
+	
+	\subsection{1. Choose the Number of Clusters (\( k \))}
+	\begin{itemize}
+		\item You decide how many groups (\( k \)) you want. For example, if you’re organizing animals, you might choose \( k = 3 \) for cats, dogs, and birds.
+		\item This is the only input you need to give the algorithm.
+	\end{itemize}
+	
+	\subsection{2. Place \( k \) Centroids Randomly}
+	\begin{itemize}
+		\item A \textbf{centroid} is like the "center point" of a cluster.
+		\item At the start, the algorithm randomly places \( k \) centroids on your data (like dropping \( k \) pins on a map).
+	\end{itemize}
+	
+	\subsection{3. Assign Points to the Nearest Centroid}
+	\begin{itemize}
+		\item The algorithm looks at each point and assigns it to the nearest centroid. For example:
+		\begin{itemize}
+			\item If a point is closer to Centroid A than Centroid B, it joins Cluster A.
+		\end{itemize}
+		\item This creates \( k \) groups of points.
+	\end{itemize}
+	
+	\subsection{4. Move the Centroids to the Center of Their Clusters}
+	\begin{itemize}
+		\item After assigning points, the algorithm recalculates the centroid for each cluster by finding the average position of all the points in that cluster.
+		\item This moves the centroid to the "center" of the cluster.
+	\end{itemize}
+	
+	\subsection{5. Repeat Until Convergence}
+	\begin{itemize}
+		\item The algorithm repeats the assignment and centroid update steps until the centroids stop moving (or until the changes are very small).
+		\item At this point, the clusters are finalized, and the algorithm stops.
+	\end{itemize}
+	
+	\section{Example}
+	Imagine you have the following 2D points on a plane:
+	\[
+	(1, 1), (1, 2), (2, 1), (5, 4), (6, 5), (6, 4)
+	\]
+	If you choose \( k = 2 \), the algorithm might:
+	\begin{enumerate}
+		\item Randomly place two centroids, say at \( (1, 1) \) and \( (6, 5) \).
+		\item Assign points closer to \( (1, 1) \) to Cluster 1 and points closer to \( (6, 5) \) to Cluster 2.
+		\item Recalculate the centroids as the average of the points in each cluster.
+		\item Repeat until the centroids stabilize.
+	\end{enumerate}
+	
+	\section{Key Points to Remember}
+	\begin{itemize}
+		\item K-means is simple and fast but requires you to choose \( k \) in advance.
+		\item It works best when the data is naturally grouped into spherical clusters.
+		\item The results can vary depending on where the centroids are initially placed.
+	\end{itemize}
+	
+	\section{Conclusion}
+	K-means clustering is a powerful and easy-to-understand algorithm for grouping data into clusters. By following the steps of initialization, assignment, and updating, it organizes data points into meaningful groups without needing prior knowledge of the groups.
+	
+\end{document}
